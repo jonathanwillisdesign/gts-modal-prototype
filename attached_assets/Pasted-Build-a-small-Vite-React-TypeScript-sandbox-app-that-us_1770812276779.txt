@@ -1,0 +1,93 @@
+Build a small Vite + React + TypeScript sandbox app that uses the published `gts-central-library` npm package.
+
+Setup
+1. Install required skills using owner/repo/skill format:
+   - `npx skills add jonathanwillisdesign/gts-central-library/gts-design-system-integration`
+   - `npx skills add jonathanwillisdesign/gts-central-library/gts-library-workflows`
+   - `npx skills add jonathanwillisdesign/gts-central-library/vercel-react-best-practices`
+2. Use those three skills explicitly while implementing.
+3. Create a fresh Vite React TS app.
+4. Install dependencies:
+   - `gts-central-library`
+   - `tailwindcss` and `@tailwindcss/postcss` (if missing)
+5. Keep one global stylesheet with Tailwind v4 import.
+6. Import styles in app entry in this order:
+   - `import "./index.css";`
+   - `import "gts-central-library/styles.css";`
+
+Design references
+1. Source of truth (Figma via Replit MCP):
+   - https://www.figma.com/design/qLixniaoEYTPiEcS373zEn/GTS-Central-Library-v2?node-id=5309-57668&t=yJmCisoG4fmf3qp0-11
+2. Inspiration only:
+   - https://base.uber.com/6d2425e9f/p/775209-dialog
+
+Goal
+Create a modal prototype system ready to copy into `gts-central-library` if approved.
+
+Component architecture
+1. Build a local reusable compound component: `ModalCandidate`
+2. Required compound API via `Object.assign(...)`:
+   - `ModalCandidate`
+   - `ModalCandidate.Trigger`
+   - `ModalCandidate.Content`
+   - `ModalCandidate.Header`
+   - `ModalCandidate.Body`
+   - `ModalCandidate.Footer`
+   - `ModalCandidate.Close`
+3. Modal anatomy:
+   - Heading section
+   - Flexible middle section
+   - Button dock/footer section
+
+Behavior requirements
+1. Controlled + uncontrolled open state
+2. Portal + overlay
+3. ESC close (configurable)
+4. Outside click close (configurable)
+5. Focus trap
+6. Initial focus support
+7. Focus restore to trigger
+8. Body scroll lock
+9. A11y attributes: `role`, `aria-modal`, `aria-labelledby`, `aria-describedby`
+
+Prototype set to include (12 total)
+1. Delete Items modal
+2. Share Designs modal
+3. Move Item modal
+4. New Folder modal
+5. Rename Folder modal
+6. Select Date modal
+7. Download Unique Barcode Data modal (new)
+8. Simplify Receiving with Unique Barcodes modal (new)
+9. Upload File modal (unchanged)
+10. Upload Image modal (unchanged)
+11. Order modal (unchanged)
+12. Simple Text modal (generic baseline)
+
+Design constraints
+1. Desktop-first implementation, then responsive adaptation.
+2. Ensure mobile usability after desktop parity (layout, spacing, footer dock, long content).
+3. Tailwind-first and GTS-token-aligned styling.
+4. Prefer semantic utilities (`bg-background`, `text-foreground`, `border-border`, `ring-ring`).
+5. No inline CSS variable expressions in `className` or `style`.
+6. If exact value is unavailable, use closest existing primitive token/utility.
+7. No Storybook; sandbox app only.
+
+Sandbox app UX
+1. One playground page with:
+   - modal type selector (all 12 variants)
+   - open/close controls
+   - size selector (`sm`, `md`, `lg`, `fullscreen-mobile`)
+   - tone selector (`default`, `inverse`, `danger`)
+   - close behavior toggles
+   - long-content toggle
+   - sticky footer dock toggle
+2. Keep implementation modular so each modal scenario is data-driven and easy to migrate.
+
+Output format
+1. List files created/updated.
+2. Show key snippets (compound API + focus logic).
+3. Show exact run commands.
+4. Summarize desktop validation, then responsive checks.
+5. If blocked, stop and report exact blocker and proposed fix.
+

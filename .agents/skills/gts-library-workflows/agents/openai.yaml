@@ -1,0 +1,4 @@
+interface:
+  display_name: "GTS Library Workflows"
+  short_description: "Guided workflows for components, icons, tokens, and releases"
+  default_prompt: "Help me execute a GTS Central Library workflow."

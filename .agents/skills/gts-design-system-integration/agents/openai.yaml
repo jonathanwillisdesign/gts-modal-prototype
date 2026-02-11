@@ -1,0 +1,4 @@
+interface:
+  display_name: "GTS Design System Integrator"
+  short_description: "Integrate gts-central-library across web apps"
+  default_prompt: "Use $gts-design-system-integration to integrate gts-central-library in this app with correct token, style, and framework setup."
